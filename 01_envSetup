@@ -19,6 +19,8 @@ We'll install:
 ```bash
 pip install langchain langchain-community langchain-experimental chromadb
 pip install ollama
+pip install --upgrade langchain langchain-community langchain-ollama
+
 ```
 
 ---
