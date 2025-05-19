@@ -1,0 +1,150 @@
+## ✅ Step 1: Create and Activate Virtual Environment
+
+```bash
+python3 -m venv langchain-agent-env
+source langchain-agent-env/bin/activate
+```
+
+## ✅ Step 2: Install Required Packages
+
+We'll install:
+
+* `langchain`
+* `langchain-community` (for local LLM)
+* `chromadb` (future use)
+* `langchain-experimental` (for advanced agent tools)
+* `ollama` (LangChain integration for Mistral)
+* `tavily` (Optional: for future web search tool)
+
+```bash
+pip install langchain langchain-community langchain-experimental chromadb
+pip install ollama
+```
+
+---
+
+## ✅ Step 3: Verify Ollama Mistral is Running
+
+Run this in another terminal:
+ollama run mistral
+Keep it running while LangChain connects to it.
+
+
+## ✅ Step 4: Understand Today’s Concept — **Agent vs Chain**
+
+### 🔹 What is a Chain?
+
+* **Chain = Fixed Flow** of LLM calls and logic.
+* Example: Prompt → LLM → Output (e.g., RAG pipeline)
+
+### 🔹 What is an Agent?
+
+* **Agent = Dynamic tool executor**
+* LLM decides what tool to use and how.
+* Think of it as: **LLM + Reasoning + Tools + Memory (optional)**
+
+
+## ✅ Step 5: Create Your First Agent with Mistral
+
+### 📁 Project Structure
+
+mkdir day1_agent_intro && cd day1_agent_intro
+touch agent_calculator.py
+```
+
+### ✨ `agent_calculator.py` (Basic ReAct Agent with Calculator Tool)
+
+```python
+from langchain_community.llms import Ollama
+from langchain.agents import Tool, AgentExecutor, initialize_agent
+from langchain.agents.agent_types import AgentType
+from langchain.tools import tool
+
+# Step 1: Setup local mistral via Ollama
+llm = Ollama(model="mistral")
+
+# Step 2: Create a simple tool
+@tool
+def calculator_tool(query: str) -> str:
+    """Calculates simple math expressions."""
+    try:
+        return str(eval(query))
+    except:
+        return "Invalid math expression."
+
+# Step 3: Wrap as a LangChain Tool
+tools = [calculator_tool]
+
+# Step 4: Initialize ReAct agent
+agent = initialize_agent(
+    tools=tools,
+    llm=llm,
+    agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+    verbose=True
+)
+
+# Step 5: Try the agent
+response = agent.run("What is 12 * 8 minus 20?")
+print(response)
+```
+
+> ✅ Output should print a correct calculated result and show reasoning steps like: “I will use calculator\_tool”.
+
+
+## 🧠 Concepts to Read Today (30–45 mins)
+
+* [LangChain Agents Introduction](https://python.langchain.com/docs/modules/agents/)
+* [ZERO\_SHOT\_REACT\_DESCRIPTION AgentType](https://python.langchain.com/docs/modules/agents/agent_types/instructions/)
+* [Tool and @tool decorator](https://python.langchain.com/docs/tools/guides/custom_tools/)
+
+---
+
+## 🧪 Mini Exercise
+
+1. Modify the calculator to support expressions like `sqrt(144)` using `math.sqrt`.
+2. Add a second tool: `length_counter_tool` that returns the number of words in a sentence.
+3. Re-run the agent and ask:
+
+   * “What is the square root of 144?”
+   * “How many words are in: ‘LangChain makes LLMs powerful.’?”
+
+---
+
+## 🗣️ Interview Prep for Day 1
+
+### ❓ Sample Interview Questions
+
+| Question                                                          | Expected Points                           |
+| ----------------------------------------------------------------- | ----------------------------------------- |
+| What is the difference between a Chain and an Agent in LangChain? | Chain = fixed, Agent = dynamic            |
+| What is ReAct in LangChain agents?                                | Reason + Act to decide which tool to use  |
+| Can you explain how an agent uses tools dynamically?              | LLM outputs actions, LangChain executes   |
+| How can you run agents without OpenAI?                            | Use `Ollama` or local `LLMs` like Mistral |
+
+---
+
+## 🔚 End of Day Checklist
+
+✅ Virtual environment created
+✅ Installed LangChain, Ollama, and dependencies
+✅ Mistral working locally
+✅ Built a simple agent with a custom tool
+✅ Understood difference between Agent and Chain
+✅ Practiced 2–3 queries with agent
+✅ Reviewed 4 interview questions
+
+---
+
+Would you like me to prepare **Day 2** tomorrow with:
+
+* Tool creation best practices
+* Custom input schema for tools
+* Multiple tools + agent reasoning
+* More advanced mini project
+
+Also, would you like me to give you:
+
+* A GitHub repo template to track each day's exercises?
+* Markdown notes for learning and journaling?
+
+Let me know and I’ll add it right away.
