@@ -1,0 +1,35 @@
+User Input: You ask a question or provide input to the LangChain Framework.
+LangChain Framework: The LangChain Framework receives the user input and passes it to the LLM Agent.
+LLM Agent: The LLM Agent uses the LLM (Large Language Model) to process the input and determine the best course of action. The LLM generates a thought process, action, and action input based on the input.
+LLM Agent: The LLM Agent generates output in a specific format, which includes the thought process, action, and action input.
+LangChain Framework: The LangChain Framework receives the output from the LLM Agent and attempts to parse it to extract the action and action input.
+LangChain Framework: If the parsing is successful, the LangChain Framework uses the extracted action and action input to execute the corresponding tool. For example, if the action is weather_tool, the LangChain Framework will call the weather_tool function with the specified action input (e.g., city=Bangalore).
+Tool Execution: The weather_tool function is executed, and it returns the result (e.g., the current weather in Bangalore).
+LangChain Framework: The LangChain Framework receives the result from the tool and generates the final output.
+
+
+Here's a more detailed sequence of steps:
+User Input → LangChain Framework
+LangChain Framework → LLM Agent
+LLM Agent → LLM (Large Language Model) processes input and generates thought process, action, and action input.
+LLM Agent → Generates output (thought process, action, action input)
+LangChain Framework → Parses LLM output (extracts action and action input)
+LangChain Framework → Executes corresponding tool (e.g., weather_tool) with specified action input
+Tool Execution → Returns result
+LangChain Framework → Generates final output
+
+
+you may get issue while executing multiple agents in same programme. This issue is mostly related to incompatible response format generted by LLMAgent. this Incompatible format is not
+understoold by LangchainFramework . then we need to prompt the LLM to generate response inline with Langchain framework.
+
+system_message = "You are a helpful assistant. Please respond in the following format: Action: [tool name], Action Input: [input value]"
+
+agent = initialize_agent(
+    tools=[calculator_tool, weather_tool, currency_converter_tool, file_reader_tool],
+    llm=llm,
+    agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+    verbose=True,
+    handle_parsing_errors=True,
+    format_instructions="Please respond in the following format: Action: [tool name]\nAction Input: [input value]"
+)
+
