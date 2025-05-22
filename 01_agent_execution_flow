@@ -18,9 +18,8 @@ LangChain Framework → Executes corresponding tool (e.g., weather_tool) with sp
 Tool Execution → Returns result
 LangChain Framework → Generates final output
 
-
-you may get issue while executing multiple agents in same programme. This issue is mostly related to incompatible response format generted by LLMAgent. this Incompatible format is not
-understoold by LangchainFramework . then we need to prompt the LLM to generate response inline with Langchain framework.
+You may get issue while executing multiple agents in same programme. This issue is mostly related to incompatible response format generted by LLMAgent. 
+this Incompatible format is not understoold by LangchainFramework . then we need to prompt the LLM to generate response inline with Langchain framework.
 
 system_message = "You are a helpful assistant. Please respond in the following format: Action: [tool name], Action Input: [input value]"
 
@@ -32,4 +31,3 @@ agent = initialize_agent(
     handle_parsing_errors=True,
     format_instructions="Please respond in the following format: Action: [tool name]\nAction Input: [input value]"
 )
-
