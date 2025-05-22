@@ -13,11 +13,11 @@ Different agent types in LangChain, especially:
 
 | Use Case                            | Description                                                                      | Reason It's Suitable                                            |
 | ----------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| 1. Math Word Problems**           | “A train travels 60 miles in 1 hour. How long will it take to travel 300 miles?” | Requires step-by-step math, like distance = speed × time.       |
-| 2. Travel Planner**               | “I want a 5-day Europe trip. Plan flights, hotels, and sightseeing.”             | Needs multiple tools: flight API → hotel → itinerary generator. |
-| 3. Financial Portfolio Analysis** | “What’s the risk profile if I invest in Apple and Tesla?”                        | Chain: fetch prices → compare trends → assess risk.             |
-| 4. Code Debugging Assistant**     | “My Python code throws an IndexError. Help me fix it.”                           | Uses: code parser → error analyzer → fix generator.             |
-| 5. Scientific Calculator**        | “What is sin(45°) + log(10) + 7^2?”                                              | Sequential tool-based math parsing and computation.             |
+| 1. Math Word Problems           | “A train travels 60 miles in 1 hour. How long will it take to travel 300 miles?” | Requires step-by-step math, like distance = speed × time.       |
+| 2. Travel Planner               | “I want a 5-day Europe trip. Plan flights, hotels, and sightseeing.”             | Needs multiple tools: flight API → hotel → itinerary generator. |
+| 3. Financial Portfolio Analysis | “What’s the risk profile if I invest in Apple and Tesla?”                        | Chain: fetch prices → compare trends → assess risk.             |
+| 4. Code Debugging Assistant     | “My Python code throws an IndexError. Help me fix it.”                           | Uses: code parser → error analyzer → fix generator.             |
+| 5. Scientific Calculator        | “What is sin(45°) + log(10) + 7^2?”                                              | Sequential tool-based math parsing and computation.             |
 
 2. 🗣️ Conversational Agent
   Tracks memory and conversation context.
@@ -29,11 +29,11 @@ Different agent types in LangChain, especially:
 
 | Use Case                        | Description                                                                             | Reason It's Suitable                    |
 | ------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------- |
-| 1. Customer Support Bot**     | “My last order didn’t arrive. What can I do?” → “It was an iPhone.”                     | Remembers past issues, order info, etc. |
-| 2. Health Assistant**         | “I have a cold. What should I take?” → “I already told you I’m allergic to penicillin.” | Maintains medical history context.      |
-| 3. HR Interview Assistant**   | “What jobs have I applied to?” → “Can you reschedule the last one?”                     | Tracks user’s interview history.        |
-| 4. Learning Tutor**           | “Explain algebra again” → “The topic we discussed last time.”                           | Remembers learning sessions.            |
-| 5. Personal Finance Advisor** | “How much did I spend last month?” → “Break it down by food and travel.”                | Remembers user budgets and preferences. |
+| 1. Customer Support Bot     | “My last order didn’t arrive. What can I do?” → “It was an iPhone.”                     | Remembers past issues, order info, etc. |
+| 2. Health Assistant         | “I have a cold. What should I take?” → “I already told you I’m allergic to penicillin.” | Maintains medical history context.      |
+| 3. HR Interview Assistant   | “What jobs have I applied to?” → “Can you reschedule the last one?”                     | Tracks user’s interview history.        |
+| 4. Learning Tutor           | “Explain algebra again” → “The topic we discussed last time.”                           | Remembers learning sessions.            |
+| 5. Personal Finance Advisor | “How much did I spend last month?” → “Break it down by food and travel.”                | Remembers user budgets and preferences. |
 
 
 
@@ -47,17 +47,17 @@ Different agent types in LangChain, especially:
 
 | Use Case                     | Description                                  | Reason It's Suitable                             |
 | ---------------------------- | -------------------------------------------- | ------------------------------------------------ |
-| 1. Appointment Scheduler** | Input must have `{date: str, time: str}`     | Ensures date/time formats are valid              |
-| 2. Ticket Booking Bot**    | Needs `{source, destination, date}`          | Ensures clean and correct inputs to booking APIs |
-| 3. Bug Report Generator**  | Requires `{module, error_code, description}` | Avoids malformed reports or missed fields        |
-| 4. Invoice Generator**     | Inputs like `{items: list, taxes: float}`    | Precise structured output for financial tools    |
-| 5. Feedback Collector**    | `{rating: int (1-5), comments: str}`         | Useful in enterprise forms where format matters  |
+| 1. Appointment Scheduler | Input must have `{date: str, time: str}`     | Ensures date/time formats are valid              |
+| 2. Ticket Booking Bot    | Needs `{source, destination, date}`          | Ensures clean and correct inputs to booking APIs |
+| 3. Bug Report Generator  | Requires `{module, error_code, description}` | Avoids malformed reports or missed fields        |
+| 4. Invoice Generator     | Inputs like `{items: list, taxes: float}`    | Precise structured output for financial tools    |
+| 5. Feedback Collector    | `{rating: int (1-5), comments: str}`         | Useful in enterprise forms where format matters  |
 
 
 ✅ Summary of Trade-offs
 
 | Agent Type         | Pros                                  | Cons                                 |
 | ------------------ | ------------------------------------- | ------------------------------------ |
-| **ReAct**          | Great for tool chaining and reasoning | May hallucinate if not guided        |
-| **Conversational** | Tracks context, good for chatbots     | Slightly more complex                |
-| **Structured**     | Enforces schema, less hallucination   | Less flexible, must predefine inputs |
+| ReAct          | Great for tool chaining and reasoning | May hallucinate if not guided        |
+| Conversational | Tracks context, good for chatbots     | Slightly more complex                |
+| Structured     | Enforces schema, less hallucination   | Less flexible, must predefine inputs |
