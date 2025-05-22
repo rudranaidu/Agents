@@ -31,3 +31,9 @@ agent = initialize_agent(
     handle_parsing_errors=True,
     format_instructions="Please respond in the following format: Action: [tool name]\nAction Input: [input value]"
 )
+
+Some common agent types in LangChain include:
+ZERO_SHOT_REACT_DESCRIPTION: This agent type uses a specific prompting strategy to generate output based on a single prompt.
+CONVERSATIONAL_REACT_DESCRIPTION: This agent type is designed for conversational workflows and uses a different prompting strategy to generate output.
+STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION: This agent type is designed for structured chat workflows and uses a specific prompting strategy to generate output.
+By providing different agent types, LangChain allows developers to choose the best agent type for their specific use case and workflow. This can help improve the performance and robustness of the application.
