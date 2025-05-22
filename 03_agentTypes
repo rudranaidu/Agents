@@ -1,0 +1,36 @@
+Different agent types in LangChain, especially:
+
+1. ReAct Agent (Reason + Act)
+2. Conversational Agent
+3. Structured Agent
+
+1. ReAct Agent (Reasoning and Acting)
+  Thought → Action → Observation → repeat...
+  Very flexible, suitable for tools that require iterative logic.
+  Best when: LLM needs to use tools multiple times or reason step-by-step. 
+
+✅  Use when: You need complex reasoning, tool chaining, or step-by-step breakdown.
+
+2. 🗣️ Conversational Agent
+  Tracks memory and conversation context.
+  Best for chatbot-like interactions with tool use.
+  Can answer follow-up questions based on prior context.
+  Supports AgentType.CONVERSATIONAL_REACT_DESCRIPTION.
+
+✅ Use when: You want a chatbot-style agent that understands previous messages.
+
+3. Structured Agent
+  More strict input/output format.
+  Uses ToolInputSchema (like you just used).
+  Avoids hallucinations with structured schema validation.
+  Suitable when inputs must follow a fixed format.
+
+✅ Use when: Tool inputs need validation, or you need strict structured interaction.
+
+✅ Summary of Trade-offs
+
+| Agent Type         | Pros                                  | Cons                                 |
+| ------------------ | ------------------------------------- | ------------------------------------ |
+| **ReAct**          | Great for tool chaining and reasoning | May hallucinate if not guided        |
+| **Conversational** | Tracks context, good for chatbots     | Slightly more complex                |
+| **Structured**     | Enforces schema, less hallucination   | Less flexible, must predefine inputs |
