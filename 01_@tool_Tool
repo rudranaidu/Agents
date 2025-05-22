@@ -1,0 +1,51 @@
+What Tool, ToolInputSchema, and tool() decorator do?
+
+1. Tool (class from langchain.tools)
+The Tool class in LangChain is a wrapper that defines how an external function or utility (like a calculator, search, file reader, etc.) is exposed to an agent.
+🔹 Purpose:
+To convert a Python function into something the agent can invoke during a reasoning step.
+
+🔹 Common parameters:
+Tool(
+    name="calculator",
+    func=your_function,
+    description="Useful for arithmetic operations like add, subtract, multiply, divide."
+)
+name: Identifier used by the agent.
+
+func: The actual callable function the tool will run.
+
+description: Guides the LLM when to use this tool.
+
+2. ToolInputSchema (optional custom Pydantic schema)
+This is used when your tool function needs structured input (multiple named fields) rather than just a string.
+
+🔹 Example:
+from pydantic import BaseModel
+
+class MathInput(BaseModel):
+    expression: str
+You can then associate this input schema with your tool so that the agent knows how to call it with structured data.
+
+✅ 3. @tool() Decorator (LangChain helper)
+This is a shortcut to convert a function into a Tool easily. It simplifies creation, especially with descriptions and schemas.
+
+from langchain.tools import tool
+
+@tool
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+🔹 Advanced Example with description:
+@tool("calculator", return_direct=True)
+def calc(expression: str) -> str:
+    """Useful for evaluating math expressions like '3 * 5 + 2'."""
+    return str(eval(expression))
+
+@tool(...) creates a Tool instance behind the scenes.
+
+return_direct=True tells the agent to stop after using this tool and return the result.
+
+Tool	Encapsulates a function for the agent to use as a tool.
+ToolInputSchema	Defines structured inputs (if needed) via Pydantic.
+@tool() decorator	Shortcut to define tools with metadata and description.
