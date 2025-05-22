@@ -29,11 +29,11 @@ Different agent types in LangChain, especially:
 
 | Use Case                        | Description                                                                             | Reason It's Suitable                    |
 | ------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------- |
-| **1. Customer Support Bot**     | “My last order didn’t arrive. What can I do?” → “It was an iPhone.”                     | Remembers past issues, order info, etc. |
-| **2. Health Assistant**         | “I have a cold. What should I take?” → “I already told you I’m allergic to penicillin.” | Maintains medical history context.      |
-| **3. HR Interview Assistant**   | “What jobs have I applied to?” → “Can you reschedule the last one?”                     | Tracks user’s interview history.        |
-| **4. Learning Tutor**           | “Explain algebra again” → “The topic we discussed last time.”                           | Remembers learning sessions.            |
-| **5. Personal Finance Advisor** | “How much did I spend last month?” → “Break it down by food and travel.”                | Remembers user budgets and preferences. |
+| 1. Customer Support Bot**     | “My last order didn’t arrive. What can I do?” → “It was an iPhone.”                     | Remembers past issues, order info, etc. |
+| 2. Health Assistant**         | “I have a cold. What should I take?” → “I already told you I’m allergic to penicillin.” | Maintains medical history context.      |
+| 3. HR Interview Assistant**   | “What jobs have I applied to?” → “Can you reschedule the last one?”                     | Tracks user’s interview history.        |
+| 4. Learning Tutor**           | “Explain algebra again” → “The topic we discussed last time.”                           | Remembers learning sessions.            |
+| 5. Personal Finance Advisor** | “How much did I spend last month?” → “Break it down by food and travel.”                | Remembers user budgets and preferences. |
 
 
 
@@ -47,11 +47,11 @@ Different agent types in LangChain, especially:
 
 | Use Case                     | Description                                  | Reason It's Suitable                             |
 | ---------------------------- | -------------------------------------------- | ------------------------------------------------ |
-| **1. Appointment Scheduler** | Input must have `{date: str, time: str}`     | Ensures date/time formats are valid              |
-| **2. Ticket Booking Bot**    | Needs `{source, destination, date}`          | Ensures clean and correct inputs to booking APIs |
-| **3. Bug Report Generator**  | Requires `{module, error_code, description}` | Avoids malformed reports or missed fields        |
-| **4. Invoice Generator**     | Inputs like `{items: list, taxes: float}`    | Precise structured output for financial tools    |
-| **5. Feedback Collector**    | `{rating: int (1-5), comments: str}`         | Useful in enterprise forms where format matters  |
+| 1. Appointment Scheduler** | Input must have `{date: str, time: str}`     | Ensures date/time formats are valid              |
+| 2. Ticket Booking Bot**    | Needs `{source, destination, date}`          | Ensures clean and correct inputs to booking APIs |
+| 3. Bug Report Generator**  | Requires `{module, error_code, description}` | Avoids malformed reports or missed fields        |
+| 4. Invoice Generator**     | Inputs like `{items: list, taxes: float}`    | Precise structured output for financial tools    |
+| 5. Feedback Collector**    | `{rating: int (1-5), comments: str}`         | Useful in enterprise forms where format matters  |
 
 
 ✅ Summary of Trade-offs
