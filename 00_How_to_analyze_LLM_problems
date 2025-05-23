@@ -1,0 +1,41 @@
+Before we code, we analyze the problem through five lenses:
+
+| Perspective              | What to Ask                                                                                                            |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| 🧩 Problem Framing       | What is the *user goal*? Is it retrieval, reasoning, generation, decision-making?                                      |
+| 📊 Data Strategy         | Do we need static knowledge (facts), dynamic knowledge (APIs), memory (user preferences), or structured data (tables)? |
+| 🧠 LLM Usage             | Should we use a pretrained model as-is, fine-tune, prompt, or use tools with agents?                                  |
+| ⚙️ System Design         | How will tools, agents, memory, and logic flow together?                                                               |
+| 🧵 Deployment & Feedback | What metrics or observability will tell us if the planner is *useful* and *trustworthy*?                               |
+
+
+Part 1: When to Use Retrieval, Reasoning, Generation, and Decision-Making
+Each of these categories defines a type of cognitive task your system is solving. Real AI projects often combine them — but knowing when each is needed is critical
+
+| Type                   | Purpose                                                                | Real-World Use Case                                                                                                                                                               |
+| ---------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🔍 **Retrieval**       | Find and return relevant data from documents or databases.             | **Upgrade Assistant**: Given a bug number, fetch related workflows from Vector DB or JSON. <br> **Travel Planner**: Retrieve sightseeing options for a given city.                |
+| 🧠 **Reasoning**       | Combine facts, tools, and logic to plan or infer. Multi-step thinking. | **5-day Trip Plan**: Allocate days, check locations, avoid time conflicts.<br>**Troubleshooting Bot**: Given logs and symptoms, trace through dependencies to identify the issue. |
+| 📝 **Generation**      | Create text, summaries, or structured responses.                       | **Email Composer**: Generate follow-up emails from meeting transcripts.<br>**Travel Agent**: Generate personalized itinerary in natural language.                                 |
+| 🧭 **Decision-Making** | Choose between multiple options based on constraints or preferences.   | **Dynamic Pricing Bot**: Adjust hotel prices based on demand.<br>**Workflow Selector**: Pick correct JC workflow based on bug type and severity.                                  |
+
+
+Part 2: When Do You Need Different Types of Data?
+Your tools and memory need to be powered by the right data strategy:
+
+| Type of Knowledge                    | Use When...                                                        | Example                                                                   |
+| ------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| ✅ **Static Knowledge (Facts)**       | You need fixed facts or static corpora. Often used in RAG.         | PDF-based SOPs, JC Workflow JSONs, travel FAQs, legal documents           |
+| 🔄 **Dynamic Knowledge (APIs)**      | Information changes frequently, must be queried live.              | Flight status API, weather API, live stock prices                         |
+| 🧠 **Memory (User Preferences)**     | You need to remember past user choices across sessions.            | Last 3 destinations visited, dietary restrictions, preferred hotel chains |
+| 📋 **Structured Data (Tables, DBs)** | You need to compute, filter, join, or summarize structured fields. | Flight schedules, price tables, JC mapping CSVs                           |
+
+Part 3: Choosing LLM Usage Style (Pretrained, Fine-tuned, Prompted, or Agentic)
+
+| LLM Usage Style            | When to Use                                                                                    | Example                                                                                                                                         |
+| -------------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ **Use Pretrained As-Is** | Your task is general (summarization, QA) and domain is not sensitive.                          | Drafting itinerary text, summarizing tickets                                                                                                    |
+| 🧪 **Prompt Engineering**  | You want specific behavior using system + user prompts + few-shot. No training needed.         | Asking Mistral to return only JSON itinerary format<br>Instructing it to plan without mixing reasoning steps                                    |
+| 🛠 **Fine-tuning**         | Your domain is specialized, and general models give bad results. Needs labeled data.           | Training on internal patch workflows so model returns exact names<br>Creating a medical bot with structured diagnosis flow                      |
+| 🤖 **Use Tools & Agents**  | Your task needs **multi-step** execution, uses tools (APIs, calculators), and needs reasoning. | Travel Planner using `search_flights()`, `get_hotels()`, and planning logic<br>Upgrade Assistant with multiple chained tools and context memory |
+
