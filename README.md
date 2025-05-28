@@ -185,11 +185,5 @@ By end of 15 days, you’ll:
 * Be prepared for **technical interviews** on LangChain agents
 * Have a strong **capstone project** for your portfolio
 
----
 
-Would you like me to:
-
-* Set up a **GitHub template** to track progress?
-* Give you **daily code templates** for each day?
-
-Let me know, and I’ll prepare those next.
+MCP Playlist: https://www.youtube.com/watch?v=XMVzT8X0QTA&list=PLiz92QIWb30HMIZwwxah-7xyMcrNUfWwz
