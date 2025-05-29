@@ -187,3 +187,14 @@ By end of 15 days, you’ll:
 
 
 MCP Playlist: https://www.youtube.com/watch?v=XMVzT8X0QTA&list=PLiz92QIWb30HMIZwwxah-7xyMcrNUfWwz
+
+
+What makes good AI engineers stand out today? The ability to make the right decisions:
+
+👉 Have you looked at your data at all? Did you even need an agent, or would a simple retriever/router + LLM do the job?
+👉 Have you talked to an SME to deeply understand edge cases and real workflows?
+👉 What failure modes do you anticipate, and how are they handled in production?
+👉 Are you tracking memory, state, and handoffs, or just hoping it holds up?
+👉 How are you thinking about optimizing for cost, latency, and scale in the long run?
+👉 What evals are you running? Are they actually actionable? And if you’re using LLM judges, what’s the cost of that eval loop and is it justified?
+👉 Once deployed, do you have a plan to improve the system using actual usage data?
