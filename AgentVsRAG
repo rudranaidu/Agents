@@ -1,0 +1,10 @@
+
+
+| Feature          | **Agent**                                                                         | **RAG Chain**                                                                         |
+| ---------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Definition**   | A dynamic decision-maker that chooses which tools or actions to use.              | A pipeline where a query is answered by retrieving documents + generating a response. |
+| **Behavior**     | Reactive and interactive — can take **multiple steps** with different tools.      | One-shot — retrieve, then generate answer in a single flow.                           |
+| **Control Flow** | Uses reasoning to **decide actions at runtime**.                                  | Fixed sequence: `retrieve → read → respond`.                                          |
+| **Tool Usage**   | Can use multiple tools (e.g., web search, DB queries, file I/O).                  | Typically uses only a retriever and an LLM.                                           |
+| **Example**      | "Find the address in a file. If not found, Google it." → picks tools accordingly. | "What is Rudrayya’s address?" → looks in the document store and answers.              |
+| **Frameworks**   | LangChain Agents, LangGraph, ReAct, Tool-Calling APIs.                            | LangChain RAG, Haystack, LlamaIndex.                                                  |
