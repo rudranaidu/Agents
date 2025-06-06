@@ -6,14 +6,26 @@ memory = ConversationBufferMemory(memory_key="chat_history", return_messages=Tru
 
 Pass this memory to your agent
 
+from langchain.agents import AgentType, initialize_agent
+from langchain.prompts import MessagesPlaceholder
+from langchain_core.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant. Use the tools if needed."),
+    MessagesPlaceholder(variable_name="chat_history"),
+    ("human", "{input}")
+])
+
 agent = initialize_agent(
     tools,
     llm,
     agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
     memory=memory,
-    verbose=True
+    verbose=True,
+    agent_kwargs={
+        "extra_prompt_messages": [MessagesPlaceholder(variable_name="chat_history")]
+    }
 )
-
 
 Long-Term Memory (VectorStoreRetrieverMemory)
 This allows the agent to recall older information beyond the current session.
