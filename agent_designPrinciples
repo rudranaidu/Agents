@@ -1,0 +1,49 @@
+📌 Build error handling first, features second
+-Plan for API timeouts, malformed data, and rate limits
+-Design failure paths before success paths
+-Agent #7 crashed our CRM with 1,000 duplicate entries - don't be me
+
+📌 Start with manual processes, then automate
+-Document your manual workflow first
+-Identify decision points and edge cases
+-Broken processes just break faster when automated
+
+📌 Think in micro-agents, not mega-workflows
+-12 small agents beat 1 massive workflow
+-Each agent does one thing perfectly
+-Easier to debug, maintain, and reuse
+
+📌 Monitor everything from day one
+-Track execution times, success rates, failure points
+-Agent #23 took 47 minutes for a 3-minute task
+-What you don't measure becomes your bottleneck
+
+📌 Context is your secret weapon
+-Feed agents rich background information
+-Well-informed agents make senior-level decisions
+-Context turns $10/hour tasks into $100/hour value
+
+📌 Test with real data, not perfect examples
+-Demo data is clean, real data is messy
+-Test with worst-case scenarios
+-Expect incomplete and inconsistent inputs
+
+📌 Version control your workflows
+-Back up before every major change
+-n8n makes iteration easy, rollbacks painful
+-"Quick fixes" can destroy weeks of work
+
+📌 Focus on high-impact, low-complexity wins first
+-30 minutes daily > 3 hours weekly savings
+-Build momentum with quick wins
+-Tackle complex challenges after proving value
+
+📌 Design for handoffs, not takeovers
+-Enhance human decision-making, don't replace it
+-Build review points into critical workflows
+-Humans approve, agents execute
+
+📌 Standardize your naming and documentation
+-Use consistent naming conventions
+-Document logic inline
+-Future you will thank present you at 3 AM
