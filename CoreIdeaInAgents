@@ -1,0 +1,13 @@
+Core Idea behind building agent
+
+Under the hood, every capable AI agent follows the same simple loop:
+- Take user input and pass it to an LLM.
+- Give the LLM access to tools (like APIs, databases, search).
+- Run the LLM in a loop — it reasons, picks a tool, uses it, reflects.
+- Break the loop once the task is done. You do this by asking the LLM to return a structured signal—like { status: "done" }.
+- Build rich context by storing each user message, AI thought, tool call, and response—then pass that history back into the LLM on the next loop. That’s context engineering.
+
+That’s it!
+
+This core loop is how agents book flights, update CRMs, fix bugs, write emails, or spin up cloud infra. 
+You don’t need a full orchestration platform to start—just a while loop, a prompt, and a few function calls.
